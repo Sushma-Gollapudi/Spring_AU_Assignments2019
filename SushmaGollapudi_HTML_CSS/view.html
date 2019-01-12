@@ -1,0 +1,200 @@
+<html>
+  <head>
+    <title> Main video</title>
+    
+    <style>
+
+      body{
+	
+	padding:5px;
+	background-color:grey;
+      }
+      
+      #left{
+      width:80%;
+      float:left;
+      }
+      
+      #right{
+      width:20%;
+      float: right;
+      }
+      
+       #top{
+      float:top;
+      float:right;
+      }
+      #first{
+       float:"left";
+      width=100%;
+      }
+      .image{
+      padding-bottom: 5px
+      }
+      
+      #logo{
+      float:left;
+      padding-right:150px;
+      padding-bottom:1px;
+      }
+      #search{
+      padding-top:8px;
+      float:top;
+      }
+      
+      .canvas{
+      padding-bottom: 3px;
+      width=30px;
+      height=30 px;
+      margin:auto;
+      }
+      
+      @media (max-width=600px)
+      {
+      #left{
+      	width=60%;
+	float:left;
+      }
+      #video{
+      width=30%;
+      float:left;
+      }
+      #left{
+      width=40%;
+      float:right;
+      }
+      }
+      
+    </style>
+    <script>
+        var comm = document.getElementById("com");
+        var cir = comm.getContext("2d");
+       cir.font = "30px Arial";
+        ctx.fillText("S",5,10);
+        </script>
+    
+  </head>
+  <body>
+    
+    <section id="left">
+    <header> 
+ 	<section id="logo" >
+    <img src="logo.png" id="logo" alt="youtube logo" width=100px height=50px>
+ 	</section>
+     
+        <form id="search">
+          <input type="textarea" rows=1 cols=100 placeholder="sample video ">
+        </form>
+      
+    </header>
+    <br>
+    <br>
+   <div >
+    <video id="video" width="90%" height="400px" controls="" autoplay="" clear="both" float="right">
+					<source src="SampleVideo_1280x720_5mb.mp4" type="video/mp4">
+					Browser not supported
+				</video>
+          <h3>
+             Demo video
+     </h3>
+     <p>
+       (Just for demonstration)
+       <br>
+       566787 views
+     </p>
+    </div> 
+    <hr>
+    <div id="commnets">
+      <p>
+       <pre> 365 comments                 sort By</pre>
+      </p>
+      
+    </div>
+
+
+    <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Commenting publicly as hnsdzg</p>
+<br>
+  <br>
+  <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Comment 1</p>
+  
+  <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Comment 2</p>
+  
+  <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Comment 3</p>
+  
+  <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Comment 4</p>
+  
+  <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Comment 5</p>
+  
+  <div class="canvas"><canvas id="com" style="border: 1px solid black;" width="20" height="20"> Your browser does not support the HTML5 canvas tag. </canvas></div>                   
+<p float="right">Comment 6</p>
+    
+    </section>
+  
+  <section id="right">
+  <p id="first">
+      <h3>Up next<h3>
+      </p>
+      <aside>
+      <form id="top">
+        Autoplay<input type="radio">
+      </form>
+        </aside>
+      <br>
+      <br>
+      
+      <div class="image">
+        <img src="img1.jfif" alt="image1"  width="100%" height="30%" >
+        <p class="caption">
+          First series
+        </p>
+      </div>
+        
+        <div class="image">
+        <img src="img2.jfif" alt="image1"  width="100%" height="30%" >
+        <p class="caption">
+          second series
+        <p>
+      </div>
+      
+      
+      <div class="image">
+        <img src="img3.jfif" alt="image1"  width="100%" height="30%" >
+        <p class="caption">
+          Third series
+      </p>
+      </div>
+    
+    
+    
+  <div class="image">
+        <img src="img4.jfif" alt="image1"  width="100%" height="30%" >
+        <p class="caption">
+          Fourth series
+        </p>
+      </div>
+  
+  
+  <div class="image">
+        <img src="img5.jfif" alt="image1"  width="100%" height="30%" >
+        <p class="caption">
+          Fifth series
+        </p>
+      </div>
+
+<div class="image">
+        <img src="img6.jfif" alt="image1"  width="100%" height="30%" >
+        <p class="caption">
+          Sixth series
+        </p>
+      </div>
+  </section>
+  
+  
+  </body>
+</html>

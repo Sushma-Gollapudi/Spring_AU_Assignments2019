@@ -1,0 +1,120 @@
+create database TaxiGo;
+use TaxiGo;
+
+create table customers (cid int primary key, cname varchar(255), phNo int(10), address varchar(255), email varchar(50), wallet double);
+create table cars(id int primary key, details varchar(50), model varchar(10));
+create table bookings( id int primary key, bookdate date, booktype varchar(5), custid int,carid int, foreign key(custid) references customers(cid), foreign key(carid) references cars(id));
+create table drivers (did int primary key, dname varchar(255),rating int, custid int, carid int, foreign key(custid) references customers(cid), foreign key(carid) references cars(id));
+create table payments( pid int primary key, ptype varchar(30), amt double(5,2), custid int, bookid int, foreign key(custid) references customers(cid), foreign key(bookid) references bookings(id));
+
+insert into customers values
+(1,"Sushma",946473897,"Mysuru","sushma.gollapudi@accoliteindia.com", 270),
+(2,"Venna",996273834,"Sirsi","veenag@gmail.com", 130),
+(3,"Rashmi",823456718,"SIrsi","rashmihegde@gmail.com", 350),
+(4,"Phani",876950483,"Mysuru","phani@gmail.com", 256),
+(5,"Vinay",764839567,"Ballari","vinayh@gmail.com", 401),
+(6,"charan",983627584,"Ballari","charang.com", 120),
+(7,"sree",974526478,"Mysuru","sreedas@accoliteindia.com", 0),
+(8,"Scarlet",675839876,"Bangalore","scarleth@accoliteindia.com", 0);
+
+insert into cars values
+(1,"mini","indica"),
+(2,"micro","indica"),
+(3,"prime","desire"),
+(4,"mini","indica"),
+(5,"micro","desire"),
+(6,"prime","desire"),
+(7,"micro","desire"),
+(8,"prime","desire"),
+(9,"micro","indica"),
+(10,"micro","desire");
+
+insert into bookings values
+(1,"2018-01-10","rent", 1, 1),
+(2,"2018-01-09","ride", 2, 2),
+(3,"2018-01-08","ride", 1, 3),
+(4,"2018-01-07","rent", 1, 3),
+(5,"2018-01-06","ride", 3, 2),
+(6,"2018-01-05","ride", 2, 4),
+(7,"2018-01-04","ride", 4, 5),
+(8,"2018-01-03","rent", 2, 5),
+(9,"2018-01-02","rent", 5, 6),
+(10,"2018-01-01","ride", 6, 8),
+(11,"2017-12-31","rent", 7, 7),
+(12,"2017-12-30","ride", 5, 10);
+
+insert into drivers values
+(1,"Dhruv", 4, 1, 1),
+(2,"Seeg", 3, 2, 2),
+(3,"Amit", 4, 2, 2),
+(4,"Raj", 2, 3, 3),
+(5,"Rai", 4, 3, 4),
+(6,"Tice", 4, 4, 5),
+(7,"Akon", 4, 5, 4),
+(8,"Bead", 2, 6, 5),
+(9,"libe", 3, 7, 6);
+
+insert into payments values
+(1, "COD", 130, 1, 1),
+(2, "Debit card", 170, 2, 2),
+(3, "wallet", 230, 1, 3),
+(4, "COD", 110, 2, 4),
+(5, "Debit card", 120, 3, 5),
+(6, "wallet", 240, 3, 6),
+(7, "Debit card", 180, 4, 7),
+(8, "COD", 339, 4, 8),
+(9, "Debit card", 430, 5, 9),
+(10, "Debit card", 154, 7, 10);
+
+
+................................................Update..............................................................
+update customers set wallet=500 where cid=3;
+select * from customers where cid=3;
+
+
+................................................Stored Procedure using update query..............................................................
+drop procedure update_wallet;
+
+delimiter //
+create procedure update_wallet( IN custID int)
+begin
+	update customers as c
+    set c.wallet = c.wallet - (select p.amt from payments as p where p.custid=custID LIMIT 1) where c.cid=custID;
+end//
+delimiter ;
+select * from customers where cid=1;
+call update_wallet(1);
+select * from customers where cid=1;
+
+
+................................................Stored Procedure using select..............................................................
+delimiter //
+create procedure BookingsByEachCustomer( IN custID int, OUT bookings_count int)
+begin
+	select count(*) into bookings_count  from bookings as b where b.custid=custID;
+end//
+delimiter ;
+
+call BookingsByEachCustomer(5, @bookings_count);
+select @bookings_count;
+
+................................................Trigger to set a minimum payment amount..............................................................
+
+delimiter //
+create trigger min_payment
+    before insert on payments
+    for each row 
+begin
+    IF NEW.amt < 50 THEN SET NEW.amt = 50;
+	END IF;
+end//
+delimiter ;
+
+insert into payments values(11, "COD", 30, 4, 3);
+select *from payments where pid=11;
+
+................................................view holding the count of cars managed by each driver..............................................................
+
+create view drivers_cars as
+select d.did,d.dname, count(*) as cars_count from drivers as d, cars as c where d.carid=c.id group by d.carid;
+select * from drivers_cars;

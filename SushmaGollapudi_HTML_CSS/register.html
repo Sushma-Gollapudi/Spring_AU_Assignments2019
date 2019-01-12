@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Register form</title>
+    
+    <style>
+	body{
+      	background-color:yellow
+      	}
+
+	#enter{
+		display:"none";
+	}
+      
+
+    </style>
+
+    <script> 
+	
+	function reg()
+        {
+	var name=document.getElementById("name").value;
+	var pwd=document.getElementById("pwd").value;
+	//document.write(name+" "+pwd);
+      	if(document.getElementById("name").value=="" || document.getElementById("pwd").value=="" ){
+		document.write("Field empty");
+      	}
+      	
+      	else
+	{	
+		localStorage.setItem(name,pwd);
+      	}
+	}
+     </script>
+  </head>
+  
+  <body>
+    <center>
+    <div>
+
+
+      <form onsubmit="reg()">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="Enter your name">
+      <br>
+      <br>
+      <label for="pwd">code:</label>
+      <input type="text"name="pwd" id="pwd" placeholder="Enter the passcode">
+      <br>
+      <br>
+ 	  <input type="submit" value="Enter">
+        <br>
+        <br>
+        <br>
+	<br>
+	<br>
+    </form>
+	<h3> Go to Login page</h3>
+	<a href="login.html"><button> login </button> </a>
+    
+    </center>
+    
+  </body>
+</html>

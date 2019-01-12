@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Login form</title>
+    
+    <style>
+	body{
+      	background-color:pink
+      	}
+
+	#enter{
+		display:"none";
+	}
+      
+	@keyframes spin{
+		from { transform: rotate(0deg) }
+		to {transform: rotate(360deg) }
+	}
+
+	#spin{
+      		animation: spin 2s infinite linear
+      	}
+    </style>
+
+    <script> 
+	function val()
+      {
+
+      	var name=document.getElementById("name").value;
+	//document.write(name);
+      	if(localStorage.getItem(name)==null){
+		document.write("User doesnot exist!! Retry");
+      		document.getElementById("name").innerHTML="";
+		document.getElementById("pwd").innerHTML="";
+      	}
+      	var pwd=document.getElementById("pwd").value;
+      	if(localStorage.getItem(name)!=pwd) {
+		document.write("Password incorrect");
+		document.getElementById("pwd").innerHTML="";
+      	}
+      	else{
+		//document.write("Welcome!! Click on the enter button");
+		if(document.getElementById("enter").style.display==="none"){document.getElementById("enter").style.display="block";}
+      	}
+	}
+     </script>
+  </head>
+  
+  <body>
+    <center>
+    <div>
+	<br>
+        <br>
+        <br>
+	<br>
+	<div>
+      <img src="login.png" alt=" Spinning youtube logo" id="spin">
+      <br>
+      <br>
+	<br>
+	<br>
+	<br>
+        <br>
+        <br>
+	<br>
+    	</div>
+
+
+      <form onsubmit="val()" action="view.html">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="Enter your name">
+      <br>
+      <br>
+      <label for="pwd">code:</label>
+      <input type="text"name="pwd" id="pwd" placeholder="Enter the passcode">
+      <br>
+      <br>
+ 	  <input type="submit" value="submit">
+        <br>
+        <br>
+        <br>
+	
+    </form>
+
+ 	<h3> Click to register</h3>
+	<a href="register.html"><button>register</button></a>
+   </div>
+    
+    
+    </center>
+    
+  </body>
+</html>
