@@ -1,3 +1,5 @@
+//The main class to input and output details
+
 package employees;
 
 import java.util.Scanner;
@@ -68,7 +70,7 @@ public class Main {
 				i=in.nextInt();
 				switch(i) {
 					case 1: {
-						System.out.println("Enter the alloted time for the project:");
+						System.out.println("Enter the alloted time for the project in terms of months:");
 						months_for_project=in.nextInt();
 						dump=in.nextLine();
 						System.out.println("Give the project title:");

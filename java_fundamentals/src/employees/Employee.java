@@ -1,3 +1,11 @@
+/* This is used to add and get employees basic details and 
+ * the function in this throws the age_exception
+ * 
+ * THis demonstrates:
+ * USage of static block
+ * Declaration of static and final variables
+ */
+
 package employees;
 
 public class Employee {
@@ -13,11 +21,11 @@ public class Employee {
 	
 	//Static block
 	static {
-		System.out.println("\nAdding new employee");
+		System.out.println("\nEmployees basic details added\n");
 	}
 	
 	Employee(){
-		
+		System.out.println("\nAdding...");
 	}
 	
 	Employee(int id,String name,int age,Address a) throws Age_exception{
@@ -25,7 +33,7 @@ public class Employee {
 		this.name=name;
 		try {
 			if(age<20)  
-			      throw new Age_exception("Age not valid");  
+			      throw new Age_exception("\nAge not valid");  
 			else  
 			      this.age=age; 
 		}catch(Exception m){System.out.println("Exception: "+m+"\n\n\n Run the program again"); System.exit(0); }  
