@@ -14,7 +14,7 @@ public class TaxiRemoveRunnable implements Runnable{
 		
 		for(int i=0;i<taxiStand.size();i++) {
 			if((taxiStand.get(i)).timecheck()) {
-				System.out.println("Taxi left after its time limit reached");
+				System.out.println("Taxi left the stand");
 				taxiStand.remove(i);
 				taxiStand.add(i,new Taxi());
 				System.out.println("the slot");

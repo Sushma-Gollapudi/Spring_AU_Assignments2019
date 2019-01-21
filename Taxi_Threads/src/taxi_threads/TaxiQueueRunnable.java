@@ -17,7 +17,7 @@ public class TaxiQueueRunnable implements Runnable {
         System.out.println("Starting taxiQueue Thread...");
         while(true) {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(60000);
                 taxiQueue.add(new Taxi());
                 System.out.println("the queue");
              } catch (InterruptedException ie) {
