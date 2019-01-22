@@ -46,7 +46,7 @@ public class App {
 		p3.setPersonAge(21);
 		session.save(p3);
 	
-		
+		//Persons with Id greater than 11 and age greater than 22
 		Criteria persons = session.createCriteria(Person.class); 
 		persons.add(Restrictions.gt("personId", 11)).add(Restrictions.gt("personAge",22));
 		
@@ -73,11 +73,17 @@ public class App {
 		  s2.setSkillName("Dance");
 		  session.save(s2);
 		  
+		//Skills By personId
 		  Criteria skills = session.createCriteria(Skill.class); 
 			skills.add(Restrictions.eq("personId",11));
 			System.out.println(skills.list());
-//			
 		
+		//Skills By skillname
+		Criteria skillsByname = session.createCriteria(Skill.class); 
+		skillsByname.add(Restrictions.eq("skillName","Dance"));
+		System.out.println(skillsByname.list());
+
+		//Join of persons and Skills
 		Criteria join = session.createCriteria(Person.class); 
 		PersonList= join.list();
 			for(Person p: PersonList) {
