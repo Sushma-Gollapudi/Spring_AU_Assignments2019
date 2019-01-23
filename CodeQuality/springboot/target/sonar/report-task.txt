@@ -1,0 +1,6 @@
+projectKey=com.codequality.spring:springboot
+serverUrl=http://localhost:9000
+serverVersion=7.5.0.20543
+dashboardUrl=http://localhost:9000/dashboard?id=com.codequality.spring%3Aspringboot
+ceTaskId=AWh6WD6Fhy1AAC3NIiLa
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWh6WD6Fhy1AAC3NIiLa
