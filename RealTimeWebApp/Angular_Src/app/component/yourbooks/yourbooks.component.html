@@ -1,0 +1,24 @@
+<p class="text">
+  Liked Books Of Yours!!
+</p>
+
+<div>
+    <span *ngFor="let book of books">
+      <div class="jumbotron" id="book">
+        <ul>
+        <!-- <a [routerLink]="['/book',book.id]" routerLinkActive="active"> <li>Book Name:{{book.bookName}}</li></a>  -->
+        <li>Book Name:{{book.bookName}}</li>  
+        <li>Book Id:{{book.id}}</li>
+          <li>Book Description:{{book.description}}</li>
+          <li>Book Author Name:{{book.authorName}}</li>
+          <li>Book Price:{{book.price}}</li>
+          <br>
+          
+        </ul>
+        <br>
+        <br>
+      </div>
+    </span>
+       
+  
+  </div>
